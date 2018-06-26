@@ -8,8 +8,8 @@ while len(blankCheck) != 0:
     blankCheck = input()
     userInput.append(blankCheck)
 
-for i in range(1,len(userInput)):
-    for j in range(1,len(userInput)):
+for i in range(1, len(userInput)):
+    for j in range(1, len(userInput)):
         if float(userInput[j]) > float(userInput[j-1]):
             temp = userInput[j]
             userInput[j] = userInput[j-1]
@@ -22,4 +22,4 @@ for i in userInput:
 
 print("The maximum of these numbers entered is " + float(userInput[0]))
 print("The minimum of these numbers entered is " + float(userInput[len(userInput)-1]))
-print("The mean of these numbers entered is " + float(sum/len(userInput)))
+print("The mean of these numbers entered is " + sum/len(userInput))
