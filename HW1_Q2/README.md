@@ -1,7 +1,7 @@
 #readme file for the inputAnalysis program
 ##HW1_Q2
 
-###ALL the characters on a NORMAL "QWERTY" LAPTOP KEYBOARD are supported(a.k.a. those that can be typed by any person who has used a Windows or MacOS or ChromOS laotop before)
+###ALL the characters on a NORMAL "QWERTY" LAPTOP KEYBOARD are supported(a.k.a. those that can be typed by any person who has used a Windows or MacOS or ChromeOS (not sure about Linux) laptop before)
 
 ####What's working:
     getting the input of the user
