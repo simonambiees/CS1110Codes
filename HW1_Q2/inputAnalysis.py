@@ -10,7 +10,7 @@ userInput = blankCheck
 countOfAppearing = 0
 
 # Initializing a list for regularly used characters that can be typed on a keyboard
-checkList = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","`",",",".","/","'",";","[","]","-","=","!","@","#","$","%","^","&","*","(",")","_","+","{","}","|",":","\"","<",">","?","~","\\"]
+checkList = ["  "," ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","`",",",".","/","'",";","[","]","-","=","!","@","#","$","%","^","&","*","(",")","_","+","{","}","|",":","\"","<",">","?","~","\\"]
 
 # start of loop for checking if the user wants to end typing.
 while len(blankCheck) != 0:
