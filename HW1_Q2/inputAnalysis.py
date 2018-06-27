@@ -33,7 +33,8 @@ for j in range(0, len(checkList)):
     for i in range(0, len(userInput)):
         if userInput[i] == checkList[j]:
             countOfAppearing += 1
-            frequency = float(countOfAppearing)/len(userInput)
+            # frequency = float(countOfAppearing)/len(userInput)
+            frequency = countOfAppearing
     if countOfAppearing >0:
         resultList.append("CHARACTER: " + "\"" + str(checkList[j]) + "\"" + "   " + "FREQUENCY: " + str(frequency))
 
