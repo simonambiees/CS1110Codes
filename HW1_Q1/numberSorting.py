@@ -1,7 +1,7 @@
 # This programs takes in a series of numbers that user inputs and sorts them to find max and min and mean
 
 # Asking for user input
-blankCheck = input("This programs analyses a series of number inputs to find the Max, Min and Mean value.\nPlease type a number and hit enter to type the next.\nHit enter twice to start the analysis.\n")
+blankCheck = input("This programs analyses a series of number inputs to find the Max, Min and Mean value.\nPlease type a number and hit enter to type the next.\nHit enter twice to start the analysis.\nONLY NUMBERS PLEASE!!!!or the program will crash!\n")
 
 # initializing a list for containing user input
 userInput = []
