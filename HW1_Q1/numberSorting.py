@@ -32,3 +32,5 @@ for i in userInput:
 print("The maximum of these numbers entered is " + userInput[0])
 print("The minimum of these numbers entered is " + userInput[len(userInput)-1])
 print("The mean of these numbers entered is " + str(sum/len(userInput)))
+
+x = input("Press enter to exit")

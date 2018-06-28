@@ -58,7 +58,7 @@ if len(resultList>0):
 else:
     print("No characters entered!")
 
-
+x = input("Press enter to exit")
 
 
 
