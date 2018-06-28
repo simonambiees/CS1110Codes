@@ -51,7 +51,7 @@ while count > 0:
     count -= 1
 
 # printing the elements in the list each on a separate line
-if len(resultList>0):
+if len(resultList)>0:
     print("Results are in DESCENDING order!!!!!")
     for i in resultList:
         print(i)
