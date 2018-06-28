@@ -1,36 +1,41 @@
 # This programs takes in a series of numbers that user inputs and sorts them to find max and min and mean
 
-def getFirstInput():
+def get_first_input():
     # Asking for user input of first matrix
-    firstBlankCheck = input("This programs analyses a series of number inputs to find the Max, Min and Mean value.\nPlease type a number and hit enter to type the next.\nHit enter twice to start the analysis.\n\nEnter the first row numbers. Separate with a space. Hit enter for net row.\n\n")
+    first_blank_check = input("This programs analyses a series of number inputs to find the Max, Min and Mean value.\nPlease type a number and hit enter to type the next.\nHit enter twice to start the analysis.\n\nEnter the first row numbers. Separate with a space. Hit enter for net row.\n\n")
     # Interpreting the user input
-    firstNewRow = firstBlankCheck.split()
+    first_new_row = first_blank_check.split()
     # initializing a list for containing user input
-    firstRowAndCol = []
-    firstRowAndCol.append(firstNewRow)
+    first_row_and_col = []
+    first_row_and_col.append(first_new_row)
+    
     # start of loop for checking if the user wants to end typing and storing inputs into a list.
-    while len(firstBlankCheck) != 0:
-        firstBlankCheck = input()
-        firstNewRow = firstBlankCheck.split()
-        firstRowAndCol.append(firstNewRow)
+    while len(first_blank_check) != 0:
+        first_blank_check = input()
+        first_new_row = first_blank_check.split()
+        first_row_and_col.append(first_new_row)
+
     # deleting the last empty element to avoid error when parsing str into float
-    firstRowAndCol.pop(len(firstRowAndCol)-1)
-    return firstRowAndCol
-def getSecondInput():
+    first_row_and_col.pop(len(first_row_and_col)-1)
+    return first_row_and_col
+
+def get_second_input():
     # Asking for user input of second matrix
-    secondBlankCheck = input("Enter the first row numbers. Separate with a space. Hit enter for net row.\n\n")
+    second_blank_check = input("Enter the second row numbers. Separate with a space. Hit enter for net row.\n\n")
     #Interpreting the user input
-    secondNewRow = secondBlankCheck.split()
+    second_new_row = second_blank_check.split()
     # initializing a list for containing user input
-    secondRowAndCol = []
-    secondRowAndCol.append(secondNewRow)
+    second_row_and_col = []
+    second_row_and_col.append(second_new_row)
+
     # start of loop for checking if the user wants to end typing and storing inputs into a list.
-    while len(secondBlankCheck) != 0:
-        secondBlankCheck = input()
-        secondNewRow = secondBlankCheck.split()
-        secondRowAndCol.append(secondNewRow)
+    while len(second_blank_check) != 0:
+        second_blank_check = input()
+        second_new_row = second_blank_check.split()
+        second_row_and_col.append(second_new_row)
+
     # deleting the last empty element to avoid error when parsing str into float
-    secondRowAndCol.pop(len(secondRowAndCol)-1)
-    return secondRowAndCol
+    second_row_and_col.pop(len(second_row_and_col)-1)
+    return second_row_and_col
 
 
