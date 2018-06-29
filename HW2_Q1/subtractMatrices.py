@@ -1,11 +1,11 @@
-def addition_matrix(x,y,check):
+def subtract_matrix(x,y,check):
     if check:
         result = []
         
         for i in range(0,len(x)):
             tempRowResult = []
             for j in range(0,len(x[i])):
-                tempRowResult.append(float(x[i][j])+float(y[i][j]))
+                tempRowResult.append(float(x[i][j])-float(y[i][j]))
             result.append(tempRowResult)
         print("\n\nThis is the result:")
         for i in range(0, len(result)):
@@ -14,6 +14,6 @@ def addition_matrix(x,y,check):
             print("\n")
             
     else:
-        result = "Not of the same dimension. Cannot add."
+        result = "Not of the same dimension. Cannot subtract."
         print(result)
     
