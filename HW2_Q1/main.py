@@ -26,5 +26,6 @@ while True:
     elif user_choice == "4":
         firstMatrix = get_first_input()
         to_transpose(firstMatrix)
+        break
     else:
         print("Invalid input. Try again.")
