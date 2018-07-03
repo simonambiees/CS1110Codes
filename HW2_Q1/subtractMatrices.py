@@ -1,12 +1,16 @@
-def subtract_matrix(x,y,check):
+def subtract_matrix(x:"List: first matrix",y:"List: second matrix",check:"Boolean, whether matrices are of same dimensions"):
     if check:
         result = []
-        
+        # for loop to process the two matrices entered to find thecooresponding values for subtraction
         for i in range(0,len(x)):
             tempRowResult = []
             for j in range(0,len(x[i])):
                 tempRowResult.append(float(x[i][j])-float(y[i][j]))
+            
+            # storing the results in a list for storage and presentation
             result.append(tempRowResult)
+        
+        # printing out the result in a formatted way
         print("\n\nThis is the result:")
         for i in range(0, len(result)):
             for j in range(0, len(result[i])):
@@ -14,6 +18,7 @@ def subtract_matrix(x,y,check):
             print("")
             
     else:
-        result = "Not of the same dimension. Cannot subtract."
+        # idiot proof codes in case inappropiate matrices are entered by user
+        result = "Not of the same dimension. Cannot add."
         print(result)
     
