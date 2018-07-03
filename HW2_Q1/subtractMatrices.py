@@ -11,7 +11,7 @@ def subtract_matrix(x,y,check):
         for i in range(0, len(result)):
             for j in range(0, len(result[i])):
                 print(str(result[i][j]), end = " ") 
-            print("\n")
+            print("")
             
     else:
         result = "Not of the same dimension. Cannot subtract."
