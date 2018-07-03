@@ -38,3 +38,6 @@ while len(secondBlankCheck) != 0:
 
 # deleting the last empty element to avoid error when parsing str into float
 secondRowAndCol.pop(len(secondRowAndCol)-1)
+
+
+print("testing git2go")
