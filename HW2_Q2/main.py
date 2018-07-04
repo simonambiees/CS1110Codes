@@ -1,3 +1,5 @@
+import jumpStart
+
 def getting_pos():
     pos_input = [0.0,0.0]
     x_pos = input("Please enter the x-coordinate of the point you want to investigate.\nEntering nothing/non-number means use (0.0,0.0)\n")
@@ -35,11 +37,23 @@ def compare_y_pos(y_line,y_point):
         print("The point in below the line.")
     else:
         print("Invalid values entered.")
-
-try:
+        
+def run_program():
     pos = getting_pos()
     constants = getting_constants()
     compare_y_pos(the_line(constants[0],constants[1],pos[0]),pos[1])
+    user_choice = input("Enter y to execute again. Enter anything else to exit.")
+    if user_choice == "y":
+        jumpStart.jump_start()
+    elif user_choice == "n":
+        raise SystemExit
+    else:
+        raise SystemExit
+
+try:
+    jumpStart.jump_start()
 except:
     print("")
+    
+
 
