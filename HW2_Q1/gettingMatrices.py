@@ -1,3 +1,6 @@
+import idiotProof
+import Menu
+
 # This programs takes in a series of numbers that user inputs and sorts them to find max and min and mean
 
 def get_input(x:"Int: how many matrices are needed"):
@@ -8,6 +11,9 @@ def get_input(x:"Int: how many matrices are needed"):
         blank_check = input("Enter a matrix.\nExample: 1 2 3\n         4 5 6\n         7 8 9\n\n")
         # Interpreting the user input
         new_row = blank_check.split()
+        if idiotProof.idiot_proof_digit(new_row) == False:
+            print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+            Menu.jump()
         # initializing a list for containing user input
         row_and_col = []
         row_and_col.append(new_row)
@@ -16,6 +22,9 @@ def get_input(x:"Int: how many matrices are needed"):
         while len(blank_check) != 0:
             blank_check = input()
             new_row = blank_check.split()
+            if idiotProof.idiot_proof_digit(new_row) == False:
+                print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+                Menu.jump()
             row_and_col.append(new_row)
 
         # deleting the last empty element to avoid error when parsing str into float
@@ -28,6 +37,10 @@ def get_input(x:"Int: how many matrices are needed"):
         first_blank_check = input("Enter the first matrix. \nExample: 1 2 3\n         4 5 6\n         7 8 9\n")
         # Interpreting the user input
         first_new_row = first_blank_check.split()
+        # idiot proof code in case non-number characters are entered
+        if idiotProof.idiot_proof_digit(first_new_row) == False:
+            print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+            Menu.jump()
         # initializing a list for containing user input
         first_row_and_col = []
         first_row_and_col.append(first_new_row)
@@ -36,6 +49,10 @@ def get_input(x:"Int: how many matrices are needed"):
         while len(first_blank_check) != 0:
             first_blank_check = input()
             first_new_row = first_blank_check.split()
+            # idiot proof code in case non-number characters are entered
+            if idiotProof.idiot_proof_digit(first_new_row) == False:
+                print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+                Menu.jump()
             first_row_and_col.append(first_new_row)
 
         # deleting the last empty element to avoid error when parsing str into float
@@ -46,6 +63,10 @@ def get_input(x:"Int: how many matrices are needed"):
         second_blank_check = input("Enter the second matrix. \nExample: 1 2 3\n         4 5 6\n         7 8 9\n")
         # Interpreting the user input
         second_new_row = second_blank_check.split()
+        # idiot proof code in case non-number characters are entered
+        if idiotProof.idiot_proof_digit(second_new_row) == False:
+            print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+            Menu.jump()
         # initializing a list for containing user input
         second_row_and_col = []
         second_row_and_col.append(second_new_row)
@@ -54,6 +75,10 @@ def get_input(x:"Int: how many matrices are needed"):
         while len(second_blank_check) != 0:
             second_blank_check = input()
             second_new_row = second_blank_check.split()
+            # idiot proof code in case non-number characters are entered
+            if idiotProof.idiot_proof_digit(second_new_row) == False:
+                print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+                Menu.jump()
             second_row_and_col.append(second_new_row)
 
         # deleting the last empty element to avoid error when parsing str into float
