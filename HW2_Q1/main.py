@@ -8,7 +8,14 @@ import Menu
 
 
 def main():
-    user_choice = input("Choose [1] if you would like to perform an addition\nChoose [2] if you would like to perform a subtraction\nChoose [3] if you would like to perform a multiplication\nChoose [4] if you would like to get a tranpose\nThe two matrices should be of the same dimension!!!\n")
+    print("Choose [1] if you would like to perform a matrix addition")
+    print("Choose [2] if you would like to perform a matrix subtraction")
+    print("Choose [3] if you would like to perform a matrix multiplication")
+    print("The two matrices should be of the same dimension!!!\n\n")
+    print("Choose [4] if you would like to get a tranpose of a matrix")
+    print("Choose [5] if you would like to multiply a vector by a matrix")
+    print("The vector must have the dimension same as the Col number of matrix")
+    user_choice = input("Your choice is: ")
 
     while True:
         # case when user chooses addition function
@@ -59,6 +66,9 @@ def main():
                 Menu.jump()
             elif next_choice == "N":
                 break
+        
+        elif user_choice == "5":
+            print()
         else:
             print("Invalid input. Try again.")
             
