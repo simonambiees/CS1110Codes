@@ -1,43 +1,127 @@
-# This programs takes in a series of numbers that user inputs and sorts them to find max and min and mean
-
-# Asking for user input of first matrix
-firstBlankCheck = input("This programs analyses a series of number inputs to find the Max, Min and Mean value.\nPlease type a number and hit enter to type the next.\nHit enter twice to start the analysis.\n\nEnter the first row numbers. Separate with a space. Hit enter for net row.\n\n")
-
-#Interpreting the user input
-firstNewRow = firstBlankCheck.split()
-
-# initializing a list for containing user input
-firstRowAndCol = []
-firstRowAndCol.append(firstNewRow)
-
-# start of loop for checking if the user wants to end typing and storing inputs into a list.
-while len(firstBlankCheck) != 0:
-    firstBlankCheck = input()
-    firstNewRow = firstBlankCheck.split()
-    firstRowAndCol.append(firstNewRow)
-
-# deleting the last empty element to avoid error when parsing str into float
-firstRowAndCol.pop(len(firstRowAndCol)-1)
+import numpy as np
 
 
-# Asking for user input of second matrix
-secondBlankCheck = input("Enter the first row numbers. Separate with a space. Hit enter for net row.\n\n")
+def get_a_matrix():
+    matrix = []
+    row_num = 1
+    while True:
+        row = input("row {}:".format(row_num))
+        if row:
+            matrix.append(list(map(int, row.split())))
+            row_num += 1
+        else:
+            break
 
-#Interpreting the user input
-secondNewRow = secondBlankCheck.split()
-
-# initializing a list for containing user input
-secondRowAndCol = []
-secondRowAndCol.append(secondNewRow)
-
-# start of loop for checking if the user wants to end typing and storing inputs into a list.
-while len(secondBlankCheck) != 0:
-    secondBlankCheck = input()
-    secondNewRow = secondBlankCheck.split()
-    secondRowAndCol.append(secondNewRow)
-
-# deleting the last empty element to avoid error when parsing str into float
-secondRowAndCol.pop(len(secondRowAndCol)-1)
+    return matrix
 
 
-print("testing git2go")
+def get_two_np_matrix():
+    print("Please input matrix(vector) 1")
+    matrix1 = np.array(get_a_matrix())
+    print("Please input matrix(vector) 2")
+    matrix2 = np.array(get_a_matrix())
+    return matrix1, matrix2
+
+
+def addition():
+    print(np.add(*get_two_np_matrix()))
+
+
+def subtraction():
+    print(np.subtract(*get_two_np_matrix()))
+
+
+def multiplication():
+    print(np.multiply(*get_two_np_matrix()))
+
+
+def transpose():
+    print(np.array(get_a_matrix()).transpose())
+
+
+def symmetric():
+    raw_matrix = np.array(get_a_matrix())
+    if np.array_equal(raw_matrix,raw_matrix.transpose()):
+        print("This matrix is symmetrical")
+    else:
+        print("This matrix is asymmetrical")
+
+
+def dot_product():
+    print(np.dot(*get_two_np_matrix()))
+
+
+def weighted_dot_product():
+    print("Enter weight")
+    weight = get_a_matrix()
+
+    print("Enter vector 1")
+    v1 = get_a_matrix()
+
+    print("Enter vector 2")
+    v2 = get_a_matrix()
+
+    result = 0
+
+    for n in range(len(weight)):
+        result += weight[n][0] * v1[n][0] * v2[n][0]
+    print(result)
+
+
+def get_user_input():
+    while True:
+        print("Matrix calculator")
+        print("""
+        1> Addition
+        2> Subtraction
+        3> Multiplication (including vector)
+        4> Calculating Transpose
+        5> Symmetric testing
+        6> Dot product
+        7> Weighted dot product
+        8> Quit
+        """)
+
+        choice = input("Your choice:")
+
+        try:
+            num = int(choice)
+            if num == 1:
+                addition()
+
+            elif num == 2:
+                subtraction()
+
+            elif num == 3:
+                multiplication()
+
+            elif num == 4:
+                transpose()
+
+            elif num == 5:
+                symmetric()
+            elif num == 6:
+                dot_product()
+
+            elif num == 7:
+                weighted_dot_product()
+
+            elif num == 8:
+                break
+
+            else:
+                print("No such option")
+                continue
+
+        except ValueError as e:
+            print(e)
+            print("Check your input")
+            continue
+
+
+def main():
+    get_user_input()
+
+
+if __name__ == '__main__':
+    main()
