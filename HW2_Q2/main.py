@@ -3,25 +3,31 @@ import jumpStart
 def getting_pos():
     pos_input = [0.0,0.0]
     x_pos = input("Please enter the x-coordinate of the point you want to investigate.\nEntering nothing/non-number means use (0.0,0.0)\n")
-    y_pos = input("Please enter the y-coordinate of the point you want to investigate.\n\n\n")
+    y_pos = input("Please enter the y-coordinate of the point you want to investigate.\n")
     try:
         pos_input[0] = float(x_pos)
+    except:
+        print("Using default value x_pos=0.0\n")
+    try:
         pos_input[1] = float(y_pos)
         return pos_input
     except:
-        print("Using default values x_pos=0.0 and y_pos=0.0\n\n\n")
+        print("Using default value y_pos=0.0\n")
         return pos_input
     
 def getting_constants():
     constants_input = [0.0,0.0]
     constant_a = input("Please enter the constant_a_ in y=ax+b.\nEntering nothing/non-number means use (0.0,0.0)\n")
-    constant_b = input("Please enter the constant_b_ in y=ax+b.\n\n\n")
+    constant_b = input("Please enter the constant_b_ in y=ax+b.\n")
     try:
         constants_input[0] = float(constant_a)
+    except:
+        print("Using default values a=0.0\n")
+    try:
         constants_input[1] = float(constant_b)
         return constants_input
     except:
-        print("Using default values a=0.0 and b=0.0\n\n\n")
+        print("Using default values b=0.0\n\n\n")
         return constants_input
 
 def the_line(a,b,x):
