@@ -1,10 +1,11 @@
 import gettingMatrices
+import gettingVectors
 import additionMatrices
 import subtractMatrices
 import transposeMatrix
 import multiplyMatrices
 import Menu
-
+import multiplyVectorAndMartix
 
 
 def main():
@@ -44,7 +45,7 @@ def main():
             elif next_choice == "N":
                 break
     
-        # case when user chooses transpose function
+        # case when user chooses multiply function
         elif user_choice == "3":
             inputs = gettingMatrices.get_input(2)
             firstMatrix = inputs[0]
@@ -57,7 +58,7 @@ def main():
             elif next_choice == "N":
                 break
         
-        # case when user chooses multiplication function
+        # case when user chooses transpose function
         elif user_choice == "4":
             firstMatrix = gettingMatrices.get_input(1)
             transposeMatrix.to_transpose(firstMatrix,True)
@@ -68,7 +69,15 @@ def main():
                 break
         
         elif user_choice == "5":
-            print()
+            user_vector = gettingVectors.get_input(1)
+            user_matrix = gettingMatrices.get_input(1)
+            same_dimension = gettingVectors.check_length(user_vector,user_matrix)
+            multiplyVectorAndMartix.multiply(user_vector, user_matrix, same_dimension)
+            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
+            if next_choice == "Y":
+                Menu.jump()
+            elif next_choice == "N":
+                break
         else:
             print("Invalid input. Try again.")
             
