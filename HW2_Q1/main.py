@@ -6,7 +6,8 @@ import transposeMatrix
 import multiplyMatrices
 import Menu
 import multiplyVectorAndMartix
-
+import symmetryTest
+import vectorDotProduct
 
 def main():
     print("Choose [1] if you would like to perform a matrix addition")
@@ -14,7 +15,9 @@ def main():
     print("Choose [3] if you would like to perform a matrix multiplication")
     print("The two matrices should be of the same dimension!!!\n\n")
     print("Choose [4] if you would like to get a tranpose of a matrix")
-    print("Choose [5] if you would like to multiply a vector by a matrix")
+    print("Choose [5] if you would like to check if a matrix is symmetric")
+    print("Choose [6] if you would like to multiply a vector by a matrix")
+    print("Choose [7] if you would like to calculate dot product of two vectors")
     print("The vector must have the dimension same as the Col number of matrix")
     user_choice = input("Your choice is: ")
 
@@ -26,11 +29,13 @@ def main():
             secondMatrix = inputs[1]
             same_dimension = gettingMatrices.check_dimension(firstMatrix,secondMatrix, False)
             additionMatrices.addition_matrix(firstMatrix,secondMatrix,same_dimension)
-            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
-            if next_choice == "Y":
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
                 Menu.jump()
-            elif next_choice == "N":
-                break
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
     
         # case when user chooses subtraction function
         elif user_choice == "2":
@@ -39,11 +44,13 @@ def main():
             secondMatrix = inputs[1]
             same_dimension = gettingMatrices.check_dimension(firstMatrix,secondMatrix, False)
             subtractMatrices.subtract_matrix(firstMatrix,secondMatrix,same_dimension)
-            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
-            if next_choice == "Y":
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
                 Menu.jump()
-            elif next_choice == "N":
-                break
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
     
         # case when user chooses multiply function
         elif user_choice == "3":
@@ -52,33 +59,66 @@ def main():
             secondMatrix = inputs[1]
             proper_dimension = gettingMatrices.check_dimension(firstMatrix, secondMatrix, True)
             multiplyMatrices.multi_matrix(firstMatrix, secondMatrix, proper_dimension)
-            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
-            if next_choice == "Y":
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
                 Menu.jump()
-            elif next_choice == "N":
-                break
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
         
         # case when user chooses transpose function
         elif user_choice == "4":
             firstMatrix = gettingMatrices.get_input(1)
             transposeMatrix.to_transpose(firstMatrix,True)
-            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
-            if next_choice == "Y":
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
                 Menu.jump()
-            elif next_choice == "N":
-                break
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
         
         elif user_choice == "5":
+            user_matrix = gettingMatrices.get_input(1)
+            symmetryTest.symmetry_test(user_matrix)
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
+                Menu.jump()
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
+                
+        elif user_choice == "6":
             user_vector = gettingVectors.get_input(1)
             user_matrix = gettingMatrices.get_input(1)
             same_dimension = gettingVectors.check_length(user_vector,user_matrix)
             multiplyVectorAndMartix.multiply(user_vector, user_matrix, same_dimension)
-            next_choice = input("Type Y(yes) to execute program again.\nType N(no) to exit.")
-            if next_choice == "Y":
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
                 Menu.jump()
-            elif next_choice == "N":
-                break
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
+                
+        elif user_choice == "7":
+            inputs = gettingVectors.get_input(2)
+            first_vector = inputs[0]
+            second_vector = inputs[1]
+            same_dimension = gettingVectors.check_length(first_vector,second_vector)
+            vectorDotProduct.dot_product(first_vector,second_vector,same_dimension)
+            next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
+            if next_choice == "y":
+                Menu.jump()
+            elif next_choice == "n":
+                raise SystemExit
+            else:
+                raise SystemExit
+            
         else:
             print("Invalid input. Try again.")
+            Menu.jump()
             
 main()

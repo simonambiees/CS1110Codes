@@ -14,7 +14,7 @@ def subtract_matrix(x:"List: first matrix",y:"List: second matrix",check:"Boolea
         print("\n\nThis is the result:")
         for i in range(0, len(result)):
             for j in range(0, len(result[i])):
-                print(str(result[i][j]), end = " ") 
+                print(str(result[i][j]), end = "|") 
             print("")
             
     else:

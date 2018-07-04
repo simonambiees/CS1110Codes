@@ -18,6 +18,6 @@ def to_transpose(x:"List, containing the matrix",y:"Boolean, whether wants print
         # printing the result in a formatted way
         for i in range(0, len(xt)):
             for j in range(0, len(xt[i])):
-                print(str(xt[i][j]), end = " ") 
+                print(str(xt[i][j]), end = "|") 
             print("")
     return xt

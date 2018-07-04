@@ -14,7 +14,7 @@ def addition_matrix(x:"List: first matrix to be added",y:"List: second list to b
         print("\n\nThis is the result:")
         for i in range(0, len(result)):
             for j in range(0, len(result[i])):
-                print(str(result[i][j]), end = " ") 
+                print("%.4f" % result[i][j], end = "|") 
             print("")
             
     else:

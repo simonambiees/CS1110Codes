@@ -16,7 +16,7 @@ def multi_matrix(x:"List, first matrix",y:"List, second matrix",check:"Boolean: 
         print("\n\nThis is the result:")
         for i in range(0, len(result)):
             for j in range(0, len(result[i])):
-                print(str(result[i][j]), end = " ") 
+                print("%.4f" % result[i][j], end = "|") 
             print("")
     else:
         # output in case the two matrices cannot be multiplied
