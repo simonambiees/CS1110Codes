@@ -3,19 +3,19 @@ import jumpStart
 def getting_pos():
     pos_input = [0.0,0.0]
     x_pos = input("Please enter the x-coordinate of the point you want to investigate.\nEntering nothing/non-number means use (0.0,0.0)\n")
-    y_pos = input("Please enter the y-coordinate of the point you want to investigate.\n")
+    y_pos = input("Please enter the y-coordinate of the point you want to investigate.\n\n\n")
     try:
         pos_input[0] = float(x_pos)
         pos_input[1] = float(y_pos)
         return pos_input
     except:
-        print("Using default values x_pos=0.0 and y_pos=0.0")
+        print("Using default values x_pos=0.0 and y_pos=0.0\n\n\n")
         return pos_input
     
 def getting_constants():
     constants_input = [0.0,0.0]
     constant_a = input("Please enter the constant_a_ in y=ax+b.\nEntering nothing/non-number means use (0.0,0.0)\n")
-    constant_b = input("Please enter the constant_b_ in y=ax+b.\n")
+    constant_b = input("Please enter the constant_b_ in y=ax+b.\n\n\n")
     try:
         constants_input[0] = float(constant_a)
         constants_input[1] = float(constant_b)
@@ -30,11 +30,11 @@ def the_line(a,b,x):
     
 def compare_y_pos(y_line,y_point):
     if y_point>y_line:
-        print("The point is above the line.")
+        print("The point is above the line.\n\n")
     elif y_point==y_line:
-        print("The point is on the line.")
+        print("The point is on the line.\n\n")
     elif y_point<y_line:
-        print("The point in below the line.")
+        print("The point is below the line.\n\n")
     else:
         print("Invalid values entered.")
         
