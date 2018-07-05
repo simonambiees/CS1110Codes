@@ -2,14 +2,12 @@ import idiotProof
 import time
 
 def getting_pos():
-    # Asking for user input of matrix
+    # Asking for input& interpreting the input
     blank_check = input("Enter pairs of x_pos and y_pos.\nExample: x y\nKeep entering until you do not want any more\n\n")
-    # Interpreting the user input
     new_pos = blank_check.split()
     if idiotProof.idiot_proof_digit(new_pos) == False:
         print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
         run_program()     
-        # initializing a list for containing user input
     row_and_col = []
     row_and_col.append(new_pos)
 
@@ -18,21 +16,23 @@ def getting_pos():
         blank_check = input()
         new_row = blank_check.split()
         row_and_col.append(new_row)
-        # idiot proof code in case non-number characters & wrong matrices are entered
+        # idiot proof code in case non-number characters are entered
         if idiotProof.idiot_proof_digit(new_row) == False:
             print("Illegal characters entered. Program cannot execute.")
             raise SystemExit
         elif idiotProof.idiot_proof_dimension(row_and_col) == False:
-            print("Not a matrix. Program cannot execute.")
+            print("Not a position. Program cannot execute.")
             raise SystemExit
     # deleting the last empty element to avoid error when parsing str into float
     row_and_col.pop(len(row_and_col)-1)
     return row_and_col
-    
+
+# asking for line equation function input& interpreting the input
 def getting_constants():
     constants_input = [0.0,0.0]
     constant_a = input("Please enter the constant_a_ in y=ax+b.\nEntering nothing/non-number means use (0.0,0.0)\n")
     constant_b = input("Please enter the constant_b_ in y=ax+b.\n")
+    # try, in case non-number characters are entered
     try:
         constants_input[0] = float(constant_a)
     except:
@@ -44,12 +44,13 @@ def getting_constants():
         print("Using default values b=0.0\n\n\n")
         return constants_input
 
+# funtion to calculate the y_pos using x_pos
 def the_line(a,b,x):
     y = float(x)*a+b
     return y
     
 def compare_y_pos(a,b,points):
-    
+    # comparing the y_pos on the line and the actual y_pos of the point
     result_above = []
     result_on = []
     result_below = []
@@ -65,12 +66,16 @@ def compare_y_pos(a,b,points):
             result_below.append(temp)
         else:
             print("Invalid values entered.")
+
+    # printing the results as three lists
     print("Points above the line:")
     print(result_above)
     print("Points on the line:")
     print(result_on)
     print("Points below the line:")
     print(result_below)
+
+    # storing the results into a file with dates
     above = ""
     on = ""
     below = ""
@@ -101,6 +106,8 @@ def compare_y_pos(a,b,points):
     file.writelines("_______________________________________________________________________________________________________________")
     file.writelines("\n")
     file.close()
+
+    # asking if user wants to execute again
     user_choice = input("Enter y to execute again. Enter anything else to exit and see the results in file \"ProgramResults.txt\"")
     if user_choice == "y":
         run_program()
@@ -109,6 +116,7 @@ def compare_y_pos(a,b,points):
     else:
         raise SystemExit
         
+# main program body
 def run_program():
     points = getting_pos()
     print(points)

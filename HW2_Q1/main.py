@@ -33,7 +33,7 @@ def main():
             additionMatrices.addition_matrix(firstMatrix,secondMatrix,same_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -48,7 +48,7 @@ def main():
             subtractMatrices.subtract_matrix(firstMatrix,secondMatrix,same_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -63,7 +63,7 @@ def main():
             multiplyMatrices.multi_matrix(firstMatrix, secondMatrix, proper_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -75,7 +75,7 @@ def main():
             transposeMatrix.to_transpose(firstMatrix,True)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -86,7 +86,7 @@ def main():
             symmetryTest.symmetry_test(user_matrix)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -99,7 +99,7 @@ def main():
             multiplyVectorAndMartix.multiply(user_vector, user_matrix, same_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -113,7 +113,7 @@ def main():
             vectorDotProduct.dot_product(first_vector,second_vector,same_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -130,7 +130,7 @@ def main():
             weightedDotProduct.weighted_dot_product(first_vector,second_vector,weight)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
-                Menu.jump()
+                main()
             elif next_choice == "n":
                 raise SystemExit
             else:
@@ -138,6 +138,6 @@ def main():
             
         else:
             print("Invalid input. Try again.")
-            Menu.jump()
+            main()
             
 main()
