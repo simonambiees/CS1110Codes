@@ -1,4 +1,5 @@
 #This program packs a lot of feature
+#execute main.py to run
 ##1.matrix addition
 ##2.matrix subtraction
 ##3.matrix multiplication
