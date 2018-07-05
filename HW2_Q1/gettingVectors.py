@@ -1,5 +1,5 @@
 import idiotProof
-import Menu
+import main
 
 def get_input(x:"Int: how many vectors are needed"):
     
@@ -9,7 +9,7 @@ def get_input(x:"Int: how many vectors are needed"):
         user_vector = user_input.split()
         if idiotProof.idiot_proof_digit(user_vector) == False:
             print("input contains non-number characters. Try again.")
-            Menu.jump()
+            main.main()
         return user_vector
         
     # case when two vectors are needed as inputs
@@ -18,14 +18,14 @@ def get_input(x:"Int: how many vectors are needed"):
         first_user_vector = first_user_input.split()
         if idiotProof.idiot_proof_digit(first_user_vector) == False:
             print("input contains non-number characters. Try again.")
-            Menu.jump()
+            main.main()
         
 
         second_user_input = input("Enter the second vector. Example: x y z\n")
         second_user_vector = second_user_input.split()
         if idiotProof.idiot_proof_digit(second_user_vector) == False:
             print("input contains non-number characters. Try again.")
-            Menu.jump()
+            main.main()
         
         two_vectors = []
         two_vectors.append(first_user_vector)

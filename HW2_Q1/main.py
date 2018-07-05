@@ -4,7 +4,6 @@ import additionMatrices
 import subtractMatrices
 import transposeMatrix
 import multiplyMatrices
-import Menu
 import multiplyVectorAndMartix
 import symmetryTest
 import vectorDotProduct
@@ -81,6 +80,7 @@ def main():
             else:
                 raise SystemExit
         
+        # case when user chooses symmetry test function
         elif user_choice == "5":
             user_matrix = gettingMatrices.get_input(1)
             symmetryTest.symmetry_test(user_matrix)
@@ -91,7 +91,8 @@ def main():
                 raise SystemExit
             else:
                 raise SystemExit
-                
+        
+        # case when user chooses vector * matrix function
         elif user_choice == "6":
             user_vector = gettingVectors.get_input(1)
             user_matrix = gettingMatrices.get_input(1)
@@ -104,7 +105,8 @@ def main():
                 raise SystemExit
             else:
                 raise SystemExit
-                
+        
+        # case when user chooses dot product function
         elif user_choice == "7":
             inputs = gettingVectors.get_input(2)
             first_vector = inputs[0]
@@ -118,7 +120,8 @@ def main():
                 raise SystemExit
             else:
                 raise SystemExit
-                
+        
+        # case when user chooses weighted dot product function
         elif user_choice == "8":
             inputs = gettingVectors.get_input(2)
             first_vector = inputs[0]
