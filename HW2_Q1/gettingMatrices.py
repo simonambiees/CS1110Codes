@@ -23,12 +23,12 @@ def get_input(x:"Int: how many matrices are needed"):
             new_row = blank_check.split()
             row_and_col.append(new_row)
             # idiot proof code in case non-number characters & wrong matrices are entered
-            # if idiotProof.idiot_proof_digit(new_row) == False:
-            #     print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
-            #     Menu.jump()
-            # elif idiotProof.idiot_proof_dimension(row_and_col) == False:
-            #     print("Not a matrix. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
-            #     Menu.jump()
+            if idiotProof.idiot_proof_digit(new_row) == False:
+                print("Illegal characters entered. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+                Menu.jump()
+            elif idiotProof.idiot_proof_dimension(row_and_col) == False:
+                print("Not a matrix. Program cannot execute.\nHowever, as the mighty Thor, son of Odin, I give you a second chance!")
+                Menu.jump()
 
         # deleting the last empty element to avoid error when parsing str into float
         row_and_col.pop(len(row_and_col)-1)
