@@ -6,3 +6,4 @@
 ##When you try all the possible combination of inputs, error will happen, I just don't know which type and when.
 ##Program works fine without bugs with my test values
 #Enjoy!
+###--Xiao (Simon) Jin, xj84@cornell.edu

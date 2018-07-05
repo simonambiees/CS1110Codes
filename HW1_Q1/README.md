@@ -13,8 +13,4 @@
     results should be displayed in no time
     
 #Enjoy!!!
-
-##Simon (Xiao) Jin
-##xj84@cornell.edu
-###Cornell Summer College 2018
-####CS 1110
+###--Xiao (Simon) Jin, xj84@cornell.edu
