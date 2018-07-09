@@ -79,7 +79,7 @@ def compare_y_pos(a,b,points):
     above = ""
     on = ""
     below = ""
-    file = open("HW2_Q2\\ProgramResults.txt","w")
+    file = open("ProgramResults.txt","a")
     localtime = time.asctime(time.localtime(time.time()))
     file.writelines(localtime)
     file.writelines("\n")
