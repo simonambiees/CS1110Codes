@@ -9,6 +9,7 @@ import symmetryTest
 import vectorDotProduct
 import weightedDotProduct
 
+
 def main():
     print("Choose [1] if you would like to perform a matrix addition")
     print("Choose [2] if you would like to perform a matrix subtraction")
@@ -43,8 +44,8 @@ def main():
             inputs = gettingMatrices.get_input(2)
             firstMatrix = inputs[0]
             secondMatrix = inputs[1]
-            same_dimension = gettingMatrices.check_dimension(firstMatrix,secondMatrix, False)
-            subtractMatrices.subtract_matrix(firstMatrix,secondMatrix,same_dimension)
+            same_dimension = gettingMatrices.check_dimension(firstMatrix, secondMatrix, False)
+            subtractMatrices.subtract_matrix(firstMatrix, secondMatrix, same_dimension)
             next_choice = input("Type y(yes) to execute program again.\nType anything else to exit. ")
             if next_choice == "y":
                 main()
