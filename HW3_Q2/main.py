@@ -2,6 +2,7 @@ from Bus import Bus
 from Town import Town
 from People import People
 import random
+import pickle
 
 # generating towns for the company
 temp_for_town = []
@@ -77,6 +78,16 @@ for i in range(0, len(temp_for_bus)):
     elif temp_for_bus[i].status is "atEnd":
         temp_for_town[temp_for_bus[i].arrival_town.index].bus_here.append(temp_for_bus[i].route)
 
+# prompting if boss wants to resume from last time
+load_or_not = input("Do you want to load data from last time? y for YES and n for NO: ")
+if load_or_not == "y":
+    save_status = pickle.load(open("save.txt", "rb"))
+    temp_for_bus = save_status[0]
+    temp_for_people = save_status[1]
+    temp_for_town = save_status[2]
+else:
+    print("statring program with new data...")
+
 # generating menu for the boss to use the program
 print("What would you like to do today, my boss?")
 print("[1]see where a bus is")
@@ -88,26 +99,54 @@ user_choice = input("choose now\n")
 
 # case where boss wants to know the position of a bus
 if user_choice == "1":
-    bus_number = int(input("give me the route number: "))
+    bus_number = int(input("give me the route number from 10 to 22: "))
     if temp_for_bus[bus_number - 10].status == "atStart":
         print("Bus NO." + str(bus_number) + " is " + "at " + temp_for_bus[bus_number - 10].departure_town.name)
     elif temp_for_bus[bus_number - 10].status == "atEnd":
         print("Bus NO." + str(bus_number) + " is " + "at " + temp_for_bus[bus_number - 10].arrival_town.name)
     elif temp_for_bus[bus_number - 10].status == "inRoute":
         print("Bus NO." + str(bus_number) + " is " + "travelling from " + temp_for_bus[bus_number - 10].departure_town.name + " to " + temp_for_bus[bus_number - 10].arrival_town.name)
+    # codes to save status to a file
+    save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
+    if save_or_not == "y":
+        save_status = [temp_for_bus, temp_for_people, temp_for_town]
+        pickle.dump(save_status, open("save.txt", "wb"))
+    else:
+        x = input("type anything to exit")
 # case where boss wants to see buses at a town
 elif user_choice == "2":
-    town_number = int(input("give me a town number from 1 to 14 "))
+    town_number = int(input("give me a town number from 1 to 14: "))
     print("Buses NO." + str(temp_for_town[town_number - 1].bus_here) + " are at " + temp_for_town[town_number - 1].name)
+    # codes to save status to a file
+    save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
+    if save_or_not == "y":
+        save_status = [temp_for_bus, temp_for_people, temp_for_town]
+        pickle.dump(save_status, open("save.txt", "wb"))
+    else:
+        x = input("type anything to exit")
 # case where boss wants to see the people on a bus
 elif user_choice == "3":
-    bus_number = int(input("give me the route number: "))
+    bus_number = int(input("give me the route number from 10 to 22: "))
     print("These are the people on this bus now: ")
     for item in temp_for_bus[bus_number - 10].people_on:
         print("    " + item.name)
     print(str(len(temp_for_bus[bus_number - 10].people_on)) + " people on this bus.")
+    # codes to save status to a file
+    save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
+    if save_or_not == "y":
+        save_status = [temp_for_bus, temp_for_people, temp_for_town]
+        pickle.dump(save_status, open("save.txt", "wb"))
+    else:
+        x = input("type anything to exit")
 # case where boss wants to see the roads out of a town
 elif user_choice == "4":
-    town_number = int(input("give me a town number from 1 to 14 "))
+    town_number = int(input("give me a town number from 1 to 14: "))
     print("This town has two road heading out.\n    First is towards " + temp_for_town[town_number - 1].first_road_to.name)
     print("    Second is towards " + temp_for_town[town_number - 1].second_road_to.name)
+    # codes to save status to a file
+    save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
+    if save_or_not == "y":
+        save_status = [temp_for_bus, temp_for_people, temp_for_town]
+        pickle.dump(save_status, open("save.txt", "wb"))
+    else:
+        x = input("type anything to exit")
