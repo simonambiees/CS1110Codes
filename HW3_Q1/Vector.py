@@ -2,10 +2,11 @@ from Matrix import Matrix
 class Vector:
     def __init__(self):
         self.body = []
+
     def set_vector(self):
         user_input = input("Enter a vector. Example: x y z\n\n")
         self.body = user_input.split()
-        if self.idiot_proof_digit(self.body) == False:
+        if self.idiot_proof_digit(self.body) is False:
             print("input contains non-number characters. Enter to Exit.")
             x = input()
             raise SystemExit
@@ -20,18 +21,17 @@ class Vector:
         result = []
         for i in range(0, len(a_matrix.rows_and_cols)):
             temp_result = 0.0
-            for j in range(0,len(self.body)):
-                temp_result += float(self.body[j])*float(a_matrix.rows_and_cols[i][j])
+            for j in range(0, len(self.body)):
+                temp_result += float(self.body[j]) * float(a_matrix.rows_and_cols[i][j])
             result.append(temp_result)
 
-        
         # printing the results
         for i in result:
-            print("%.2f" % i+"|")
+            print("%.2f" % i + "|")
         return result
 
     # idiot proof for non-number inputs
-    def idiot_proof_digit(self,x):
+    def idiot_proof_digit(self, x):
         check = True
         for i in x:
             try:
@@ -48,7 +48,7 @@ class Vector:
         # calculating and storing the results
         result = 0.0
         for i in range(0, len(self.body)):
-            result += float(self.body[i])*float(a_vector.body[i])
+            result += float(self.body[i]) * float(a_vector.body[i])
         # printing the results
         print("%.2f" % result)
 
@@ -68,6 +68,6 @@ class Vector:
         # calculating and storing the results
         result = 0.0
         for i in range(0, len(self.body)):
-            result += float(self.body[i])*float(a_vector.body[i])*float(weight.body[i])
+            result += float(self.body[i]) * float(a_vector.body[i]) * float(weight.body[i])
         # printing the results
         print("%.2f" % result)
