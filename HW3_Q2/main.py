@@ -81,7 +81,7 @@ for i in range(0, len(temp_for_bus)):
 # prompting if boss wants to resume from last time
 load_or_not = input("Do you want to load data from last time? y for YES and n for NO: ")
 if load_or_not == "y":
-    save_status = pickle.load(open("save.txt", "rb"))
+    save_status = pickle.load(open("save.b", "rb"))
     temp_for_bus = save_status[0]
     temp_for_people = save_status[1]
     temp_for_town = save_status[2]
@@ -110,7 +110,7 @@ if user_choice == "1":
     save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
     if save_or_not == "y":
         save_status = [temp_for_bus, temp_for_people, temp_for_town]
-        pickle.dump(save_status, open("save.txt", "wb"))
+        pickle.dump(save_status, open("save.b", "wb"))
     else:
         x = input("type anything to exit")
 # case where boss wants to see buses at a town
@@ -121,7 +121,7 @@ elif user_choice == "2":
     save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
     if save_or_not == "y":
         save_status = [temp_for_bus, temp_for_people, temp_for_town]
-        pickle.dump(save_status, open("save.txt", "wb"))
+        pickle.dump(save_status, open("save.b", "wb"))
     else:
         x = input("type anything to exit")
 # case where boss wants to see the people on a bus
@@ -135,7 +135,7 @@ elif user_choice == "3":
     save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
     if save_or_not == "y":
         save_status = [temp_for_bus, temp_for_people, temp_for_town]
-        pickle.dump(save_status, open("save.txt", "wb"))
+        pickle.dump(save_status, open("save.b", "wb"))
     else:
         x = input("type anything to exit")
 # case where boss wants to see the roads out of a town
@@ -147,6 +147,6 @@ elif user_choice == "4":
     save_or_not = input("\nDo you want to save status for next time? y for YES and n for NO: ")
     if save_or_not == "y":
         save_status = [temp_for_bus, temp_for_people, temp_for_town]
-        pickle.dump(save_status, open("save.txt", "wb"))
+        pickle.dump(save_status, open("save.b", "wb"))
     else:
         x = input("type anything to exit")
