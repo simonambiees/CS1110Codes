@@ -12,12 +12,15 @@ class myPeople:
         self.friends = myList.myList()
     
     def __str__(self):
-        message = "Name: " + self.name + "  ID: " + str(self.id) + "  Who has books:\n"
+        message = "Name: " + self.name + "  ID: " + str(self.id) + "\n    Who has books:\n"
         for i in range(0, self.current_book.len):
             message += "        " + str(self.current_book.find(i).item) + "\n"
-        message += "                  Who borrowed books:\n"
+        message += "    Who borrowed books:\n"
         for j in range(0, self.borrowed_book.len):
             message += "        " + str(self.borrowed_book.find(j).item) + "\n"
+        message += "    Who has friends:\n"
+        for k in range(0, self.friends.len):
+            message += "        " + str(self.friends.find(k).item.name) + "\n"
         return message
         
     def borrow_book(self, book):

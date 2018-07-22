@@ -1,7 +1,7 @@
 import myList
 import myPeople
 import myBooks
-class myLibrary:
+class myFriendship:
     def __init__(self):
         self.people = myList.myList()
         self.books = myList.myList()
@@ -16,10 +16,14 @@ class myLibrary:
         for i in range(0, self.people.len):
             print(self.people.find(i).item)
 
-library_one = myLibrary()
-person_one = myPeople.myPeople("A", 111, 10)
-person_two = myPeople.myPeople("B", 112, 10)
-person_three = myPeople.myPeople("C", 113, 10)
+library_one = myFriendship()
+person_one = myPeople.myPeople("PersonA", 111, 10)
+person_two = myPeople.myPeople("PersonB", 112, 10)
+person_three = myPeople.myPeople("PersonC", 113, 10)
+person_one.add_friend(person_two)
+person_two.add_friend(person_one)
+person_two.add_friend(person_three)
+person_three.add_friend(person_one)
 book_one = myBooks.myBooks("BookA", "Simon", 1)
 book_two = myBooks.myBooks("BookB", "Simon", 1)
 book_three = myBooks.myBooks("BookC", "Simon", 1)
@@ -37,4 +41,4 @@ library_one.add_people(person_two)
 library_one.add_people(person_three)
 
 person_one.return_book("BookA", 1)
-print(person_one)
+library_one.get_info()
