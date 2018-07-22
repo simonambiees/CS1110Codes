@@ -30,12 +30,12 @@ class myList:
                     index = i
             if index == 0:
                 self.start.next = self.find(index + 1)
-                index += 1
-                for k in range(index - 1, self.len - 1):
-                    self.find(k).next = self.find(k + 2)
+                self.len -= 1
             else:
-                for k in range(index - 1, self.len - 1):
-                    self.find(k).next = self.find(k + 2)
+                if index < self.len:
+                    self.find(index - 1).next = self.find(index + 1)
+                elif index == self.len:
+                    self.find(index - 1).next = None
 
     def has(self, item):
         has = False
