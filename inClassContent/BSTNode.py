@@ -19,6 +19,9 @@ class BSTNode :
     def setRight(self, R): self.right = R
     def getRight(self): return self.right
 
+    def hasLeft(self): return self.left != None
+    def hasRight(self): return self.right != None
+
     def showInfo(self):
         tempInfo = "node_(" + str(self.ID) + ") "
         tempInfo += "\t= << " + str(self.data) + " >> "

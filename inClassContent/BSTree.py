@@ -43,3 +43,44 @@ class BSTree:
             for node in self.allNodes:
                 tempInfo += "\t" + node.showInfo() +"\n"
             return tempInfo
+
+    def startFind(self, thing):
+        ''' returns BSTnode if found, else returns None -- this is the helper function '''
+        if self.isEmpty():
+            return None
+        else:
+            return self.find(thing, self.root)
+
+    def find(self, thing, node):
+        ''' this is the recursive function '''
+        if node.getData() == thing :
+            print ("found it")
+            return node
+        if thing < node.getData() :
+            if node.getLeft() == None:
+                print("sorry -- the thing = " +str(thing)+ " wasn't there :(")
+                return None
+            return self.find(thing, node.getLeft())
+        else :
+            if node.getRight() == None:
+                print("sorry -- the thing = " +str(thing)+ " wasn't there :(")
+                return None
+            return self.find(thing, node.getRight())
+
+    def startOrderedList(self):
+        temp = []
+        if self.isEmpty():
+            print("The tree was empty")
+            return temp
+        else:
+            return self.getOrderedList(temp, self.root)
+
+    def getOrderedList(self, tempList, node):
+        if node.hasLeft():
+            tempList = self.getOrderedList(tempList, node.getLeft())
+        tempList.append(node.getData())
+        if node.hasRight():
+            tempList = self.getOrderedList(tempList, node.getRight())
+        return tempList
+
+
