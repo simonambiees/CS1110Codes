@@ -16,9 +16,9 @@ class myList:
 
     def append(self, item):
         if self.len == 0:
-            self.start = myItem(item)
+            self.start = myItem.myItem(item)
         else:
-            self.find(self.len - 1).next = myItem(item)
+            self.find(self.len - 1).next = myItem.myItem(item)
         self.len += 1
 
     def delete(self, item):
