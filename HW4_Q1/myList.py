@@ -23,9 +23,7 @@ class myList:
 
     def delete(self, item):
         if self.len == 0:
-            if self.start == item:
-                self.start = None
-                self.len -= 1
+            print("no item in the list")
         else:
             for i in range(0, self.len - 1):
                 if self.find(i) == item:
