@@ -3,12 +3,12 @@ import myItem
 
 class myList:
     def __init__(self):
-        self.start = None
+        self.start = myItem.myItem("")
         self.len = 0
 
     def find(self, num):
         i = 0
-        ans = self.start
+        ans = self.start.next
         while i < num:
             ans = ans.next
             i += 1
@@ -16,7 +16,7 @@ class myList:
 
     def append(self, item):
         if self.len == 0:
-            self.start = myItem.myItem(item)
+            self.start.next = myItem.myItem(item)
         else:
             self.find(self.len - 1).next = myItem.myItem(item)
         self.len += 1
@@ -25,12 +25,17 @@ class myList:
         if self.len == 0:
             print("no item in the list")
         else:
-            for i in range(0, self.len - 1):
+            for i in range(0, self.len):
                 if self.find(i) == item:
-                    for j in range(i, self.len):
-                        self.find(j - 1).next = self.find(j + 1)
-                    self.len -= 1
-                    break
+                    index = i
+            if index == 0:
+                self.start.next = self.find(index + 1)
+                index += 1
+                for k in range(index - 1, self.len - 1):
+                    self.find(k).next = self.find(k + 2)
+            else:
+                for k in range(index - 1, self.len - 1):
+                    self.find(k).next = self.find(k + 2)
 
     def has(self, item):
         has = False

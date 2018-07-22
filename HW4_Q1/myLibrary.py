@@ -36,5 +36,5 @@ library_one.add_people(person_one)
 library_one.add_people(person_two)
 library_one.add_people(person_three)
 
-person_one.return_book("BookB", 1)
-library_one.get_info()
+person_one.return_book("BookA", 1)
+print(person_one)
