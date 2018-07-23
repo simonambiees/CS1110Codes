@@ -1,5 +1,5 @@
 import myList
-import myBooks
+
 
 class myPeople:
     def __init__(self, name, id, age):
@@ -23,10 +23,6 @@ class myPeople:
             message += "        " + str(self.friends.find(k).item.name) + "\n"
         return message
         
-    def borrow_book(self, book):
-        self.current_book.append(book)
-        self.borrowed_book.append(book)
-
     def return_book(self, title, edition):
         ans = None
         for i in range(0, self.current_book.len):
