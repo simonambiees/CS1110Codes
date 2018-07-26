@@ -13,5 +13,3 @@ class myBooks:
 
     def set_label(self, label):
         self.subject_label = label
-
-    
