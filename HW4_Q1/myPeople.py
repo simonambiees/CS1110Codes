@@ -1,14 +1,5 @@
 import myList
 
-
-"git.enableSmartCommit": true,
-    "explorer.confirmDelete": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--max-line-length=120",
-        "--ignore=E402,F841,F401,E302,E305,E501,W293",
-    ],
-
 class myPeople:
     def __init__(self, name, id, age):
         self.name = name
