@@ -4,14 +4,14 @@ class myPeople:
     def __init__(self, name, id, age):
         self.name = name
         self.id = id
-        self.name = name
+        self.age = age
         self.current_book = myList.myList()
         self.borrowed_book = myList.myList()
         self.lent_book = myList.myList()
         self.friends = myList.myList()
     
     def __str__(self):
-        message = "Name: " + self.name + "  ID: " + str(self.id) + "\n    Who has books:\n"
+        message = "Name: " + self.name + "  ID: " + str(self.id) + "  Age: " + str(self.age) + "\n    Who has books:\n"
         for i in range(0, self.current_book.len):
             message += "        " + str(self.current_book.find(i).item) + "\n"
         message += "    Who borrowed books:\n"

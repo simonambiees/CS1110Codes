@@ -17,9 +17,10 @@ class myList:
     def append(self, item):
         if self.len == 0:
             self.start.next = myItem.myItem(item)
+            self.len += 1
         else:
             self.find(self.len - 1).next = myItem.myItem(item)
-        self.len += 1
+            self.len += 1
 
     def delete(self, item):
         if self.len == 0:
@@ -34,8 +35,10 @@ class myList:
             else:
                 if index < self.len:
                     self.find(index - 1).next = self.find(index + 1)
+                    self.len -= 1
                 elif index == self.len:
                     self.find(index - 1).next = None
+                    self.len -= 1
 
     def has(self, item):
         has = False
