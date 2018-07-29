@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3",
+    "python.pythonPath": "C:\\Users\\simon\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": false
 }

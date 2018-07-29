@@ -6,6 +6,7 @@ class myBooks:
         self.edition_number = edition
         self.annotation = None
         self.recommendation_value = 0
+        self.number_of_rank = 0
 
     def __str__(self):
         message = self.title + " by " + self.author + " Edition NO." + str(self.edition_number)

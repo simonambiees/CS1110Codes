@@ -25,7 +25,7 @@ class myPeople:
     def is_friend_with(self, id):
         is_friend = False
         for i in range(0, self.friends.len):
-            if self.friends.find(i).item.id == id:
+            if self.friends.find(i).item.id == int(id):
                 is_friend = True
         return is_friend
         
