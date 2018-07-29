@@ -22,19 +22,18 @@ class myPeople:
             message += "        " + str(self.friends.find(k).item.name) + "\n"
         return message
         
-    def return_book(self, title, edition):
-        ans = None
-        for i in range(0, self.current_book.len):
-            if self.current_book.find(i).item.title == title and self.current_book.find(i).item.edition_number == edition:
-                ans = self.current_book.find(i)
-                self.current_book.delete(ans)
-                break
-        if ans is None:
-            print("Didn't find a book called " + title + " in the possession of " + self.name)
-        return ans
+    def is_friend_with(self, id):
+        is_friend = False
+        for i in range(0, self.friends.len):
+            if self.friends.find(i).item.id == id:
+                is_friend = True
+        return is_friend
         
     def add_friend(self, person):
         self.friends.append(person)
+
+    def break_friend(self, item):
+        self.friends.delete(item)
 
     def find_book(self, title, edition):
         ans = None
