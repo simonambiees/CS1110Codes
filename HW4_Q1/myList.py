@@ -6,6 +6,7 @@ class myList:
         self.start = myItem.myItem("")
         self.len = 0
 
+    # searching for an item by index
     def find(self, num):
         i = 0
         ans = self.start.next
@@ -14,6 +15,7 @@ class myList:
             i += 1
         return ans
 
+    # appending an item
     def append(self, item):
         if self.len == 0:
             self.start.next = myItem.myItem(item)
@@ -22,6 +24,7 @@ class myList:
             self.find(self.len - 1).next = myItem.myItem(item)
             self.len += 1
 
+    # deleting an item
     def delete(self, item):
         if self.len == 0:
             print("no item in the list")
@@ -40,6 +43,7 @@ class myList:
                     self.find(index - 1).next = None
                     self.len -= 1
 
+    # checking if myList has an item
     def has(self, item):
         has = False
         for i in range(0, self.len):
@@ -47,5 +51,6 @@ class myList:
                 has = True
                 break
 
+    # rewrite myList.len()
     def __len__(self):
         return self.len

@@ -10,6 +10,7 @@ class myPeople:
         self.lent_book = myList.myList()
         self.friends = myList.myList()
     
+    # rewriting string output of myPeople
     def __str__(self):
         message = "Name: " + self.name + "  ID: " + str(self.id) + "  Age: " + str(self.age) + "\n    Who has books:\n"
         for i in range(0, self.current_book.len):
@@ -21,20 +22,24 @@ class myPeople:
         for k in range(0, self.friends.len):
             message += "        " + str(self.friends.find(k).item.name) + "\n"
         return message
-        
+    
+    # checking if I am a friend with another person
     def is_friend_with(self, id):
         is_friend = False
         for i in range(0, self.friends.len):
             if self.friends.find(i).item.id == int(id):
                 is_friend = True
         return is_friend
-        
+    
+    # making a new friend
     def add_friend(self, person):
         self.friends.append(person)
 
+    # ending a relationship
     def break_friend(self, item):
         self.friends.delete(item)
 
+    # find a book in my possession
     def find_book(self, title, edition):
         ans = None
         for i in range(0, self.current_book.len):

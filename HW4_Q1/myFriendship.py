@@ -12,9 +12,11 @@ class myFriendship:
         for i in range(0, self.people.len):
             print(self.people.find(i).item)
 
+    # returns people list
     def get_people_list(self):
         return self.people
 
+    # returns book list
     def get_books_list(self):
         return self.books
 
@@ -178,6 +180,7 @@ class myFriendship:
         for k in range(0, temp_people.len):
             print(temp_people.find(k).item)
 
+    # return a book with info about people's ids
     def return_book(self, title, edition, borrow_person_id, lend_person_id):
         person_to_borrow = None
         for i in range(0, self.people.len):
@@ -203,7 +206,7 @@ class myFriendship:
             person_to_lend.current_book.append(ans.item)
             print("Success!")
 
-
+    # borrow a book with info about people's ids
     def borrow_book(self, title, edition, borrow_person_id, lend_person_id):
         person_to_borrow = None
         for i in range(0, self.people.len):
@@ -233,6 +236,7 @@ class myFriendship:
         else:
             print("The lender is not a friend with the borrower")
 
+    # setting up a relationship
     def add_friend(self, id_first, id_second):
         first_person = None
         for i in range(0, self.people.len):
@@ -252,6 +256,7 @@ class myFriendship:
             first_person.item.add_friend(second_person.item)
             print("Successfully added second person to the friends list of the first person.")
 
+    # sabotage a relationship LOL
     def delete_friend(self, id_first, id_second):
         for i in range(0, self.people.len):
             if self.people.find(i).item.id == id_first:
@@ -270,133 +275,148 @@ class myFriendship:
             first_person.break_friend(second_person)
             print("Successfully deleted second person as a friend of the first person.")
 
-library_one = myFriendship()
+# initializing simulation data
+friendship_one = myFriendship()
+# initializing people
 for i in range(0, 6):
     person = myPeople.myPeople("Person" + str(i), 100 + i, random.randint(20, 60))
-    library_one.people.append(person)
+    friendship_one.people.append(person)
+# initializing books
 for i in range(0, 20):
     for j in range(1, random.randint(1, 3)):
         book = myBooks.myBooks("Book" + str(i), "Simon" + str(i), j)
-        library_one.books.append(book)
-for i in range(0, library_one.books.len):
-    library_one.people.find(random.randint(0, library_one.people.len - 1)).item.current_book.append(library_one.books.find(i).item)
-library_one.get_info()
-        
+        friendship_one.books.append(book)
+# setting up friendship environment
+for i in range(0, friendship_one.books.len):
+    friendship_one.people.find(random.randint(0, friendship_one.people.len - 1)).item.current_book.append(friendship_one.books.find(i).item)
+friendship_one.get_info()
+
+# first start up menu
 def start_up():
     print("\n\nselect an option: ")
     print("---using simulation data above---")
     print("---inappropriate input will cause program to exit---")
     print("---To borrow a book, you must first make the owner your friend")
-    menu(library_one)
+    menu(friendship_one)
 
-def menu(library_one):
-    
+# actual menu for selecting actions
+def menu(friendship_one):
     print("[1]create friendships")
     print("[2]deleting friendships")
     print("[3]borrow books")
     print("[4]return books")
     print("[5]check if friend has book")
     print("[6]rank a book")
-    print("[7]--AdministratorOnly--sort people by name")
-    print("[8]--AdministratorOnly--sort people by age")
-    print("[9]--AdministratorOnly--sort people by id")
-    print("[10]--AdministratorOnly--sort people by number of books in possession")
+    print("[7]annotate a book")
+    print("[8]--AdministratorOnly--sort people by name")
+    print("[9]--AdministratorOnly--sort people by age")
+    print("[10]--AdministratorOnly--sort people by id")
+    print("[11]--AdministratorOnly--sort people by number of books in possession")
     level_two = input()
     if level_two == "1":
         first_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         check = True
         while check:
             second_id = input("The other person's ID: ")
-            library_one.add_friend(first_id, second_id)
+            friendship_one.add_friend(first_id, second_id)
             decision = input("Continue adding friends? y/n ")
+            # case when user stops adding friends
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "2":
         first_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         check = True
         while check:
             second_id = input("The other person's ID: ")
-            library_one.delete_friend(first_id, second_id)
+            friendship_one.delete_friend(first_id, second_id)
             decision = input("Continue deleting friends? y/n")
+            # case when user stops deleting friends
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "3":
         borrow_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         check = True
         while check:
             lend_id = input("The lender's ID: ")
             title = input("Book title: ")
             edition = input("Book edition: ")
-            library_one.borrow_book(title, edition, borrow_id, lend_id)
-            decision = input("Continue borrowing books? y/n")
+            friendship_one.borrow_book(title, edition, borrow_id, lend_id)
+            decision = input("Continue borrowing books? y/n ")
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "4":
         borrow_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         check = True
         while check:
             lend_id = input("The lender's ID: ")
             title = input("Book title: ")
             edition = input("Book edition: ")
-            library_one.return_book(title, edition, borrow_id, lend_id)
+            friendship_one.return_book(title, edition, borrow_id, lend_id)
             decision = input("Continue deleting books? y/n ")
+            # case when user stops deleting books
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "5":
         borrow_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         check = True
         while check:
             lend_id = input("The lender's ID: ")
             title = input("Book title: ")
             edition = input("Book edition: ")
+            # locating two people
             person_to_borrow = None
-            for i in range(0, library_one.people.len):
-                if library_one.people.find(i).item.id == int(borrow_id):
+            for i in range(0, friendship_one.people.len):
+                if friendship_one.people.find(i).item.id == int(borrow_id):
                     index = i
-                    person_to_borrow = library_one.people.find(index).item
+                    person_to_borrow = friendship_one.people.find(index).item
                     break
             if person_to_borrow.is_friend_with(lend_id):
                 person_to_lend = None
-                for j in range(0, library_one.people.len):
-                    if library_one.people.find(j).item.id == int(lend_id):
+                for j in range(0, friendship_one.people.len):
+                    if friendship_one.people.find(j).item.id == int(lend_id):
                         index = j
-                        person_to_lend = library_one.people.find(index).item
+                        person_to_lend = friendship_one.people.find(index).item
                         break
                 ans = None
                 for i in range(0, person_to_lend.current_book.len):
@@ -404,6 +424,7 @@ def menu(library_one):
                         ans = person_to_lend.current_book.find(i)
                         break
                 if ans is None:
+                    # checking friend's friends if they have the book
                     print("Didn't find a book called " + title + " in the possession of " + person_to_lend.name)
                     friends_friend = input("Do you want to check on friend's friend? y/n ")
                     if friends_friend == "y":
@@ -421,30 +442,33 @@ def menu(library_one):
             else:
                 print("The lender is not a friend with the borrower")
             decision = input("Continue looking for books? y/n ")
+            # case when the user stops looking for books
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "6":
         check = True
         ranker_id = input("Your id: ")
+        # execution loop in case user wants to execute again
         while check:
             book_title = input("Book title: ")
             book_edition = input("Book edition number: ")
             value = input("Recommendation value from 1 to 5: ")
             ranker = None
-            for i in range(0, library_one.people.len):
-                if library_one.people.find(i).item.id == int(ranker_id):
+            for i in range(0, friendship_one.people.len):
+                if friendship_one.people.find(i).item.id == int(ranker_id):
                     index = i
-                    ranker = library_one.people.find(index).item
+                    ranker = friendship_one.people.find(index).item
                     break
+            # check if user has read the book. cannot rank without reading
             read_the_book = False
             for i in range(0, ranker.borrowed_book.len):
                 if ranker.borrowed_book.find(i).item.title == book_title and ranker.borrowed_book.find(i).item.edition_number == int(book_edition):
@@ -457,38 +481,72 @@ def menu(library_one):
             else:
                 print("You never read the book. Cannot rank. Enter to try again.")
                 x = input()
-                library_one.get_info()
+                friendship_one.get_info()
                 start_up()
             decision = input("Continue ranking books? y/n ")
+            # case when user stops
             if decision == "n":
                 status_check = input("Check system status? y/n ")
                 if status_check == "y":
-                    library_one.get_info()
+                    friendship_one.get_info()
                     raise SystemExit
                 elif status_check == "n":
                     print("\n\n\n")
-                    library_one.get_info()
+                    friendship_one.get_info()
                     start_up()
                 else:
                     raise SystemExit
     elif level_two == "7":
-        passwd = input("Admin password (found in README.md): ")
-        if passwd == "1110":
-            reverse = input("Ascending or descending order? a/d ")
-            if reverse == "a":
-                library_one.sort_people_name()
-            elif reverse == "d":
-                library_one.sort_people_name(True)
+        check = True
+        annotator_id = input("Your id: ")
+        # execution loop in case user wants to execute again
+        while check:
+            book_title = input("Book title: ")
+            book_edition = input("Book edition number: ")
+            value = input("Annotation: ")
+            annotator = None
+            for i in range(0, friendship_one.people.len):
+                if friendship_one.people.find(i).item.id == int(ranker_id):
+                    index = i
+                    annotator = friendship_one.people.find(index).item
+                    break
+            # check if user has read the book. cannot annotate without reading
+            read_the_book = False
+            for i in range(0, ranker.borrowed_book.len):
+                if annotator.borrowed_book.find(i).item.title == book_title and annotator.borrowed_book.find(i).item.edition_number == int(book_edition):
+                    read_the_book = True
+                    book_index = i
+            if read_the_book:
+                annotator.borrowed_book.find(book_index).item.Annotation = value
+                print("Annotated.")
             else:
-                raise SystemExit
+                print("You never read the book. Cannot annotate. Enter to try again.")
+                x = input()
+                friendship_one.get_info()
+                start_up()
+            decision = input("Continue annotating books? y/n ")
+            # case when user stops
+            if decision == "n":
+                status_check = input("Check system status? y/n ")
+                if status_check == "y":
+                    friendship_one.get_info()
+                    raise SystemExit
+                elif status_check == "n":
+                    print("\n\n\n")
+                    friendship_one.get_info()
+                    start_up()
+                else:
+                    raise SystemExit
+
+    # administrator actions that require password
     elif level_two == "8":
         passwd = input("Admin password (found in README.md): ")
         if passwd == "1110":
             reverse = input("Ascending or descending order? a/d ")
             if reverse == "a":
-                library_one.sort_people_age()
+                friendship_one.sort_people_name()
             elif reverse == "d":
-                library_one.sort_people_age(True)
+                friendship_one.sort_people_name(True)
             else:
                 raise SystemExit
     elif level_two == "9":
@@ -496,9 +554,9 @@ def menu(library_one):
         if passwd == "1110":
             reverse = input("Ascending or descending order? a/d ")
             if reverse == "a":
-                library_one.sort_people_id()
+                friendship_one.sort_people_age()
             elif reverse == "d":
-                library_one.sort_people_id(True)
+                friendship_one.sort_people_age(True)
             else:
                 raise SystemExit
     elif level_two == "10":
@@ -506,9 +564,19 @@ def menu(library_one):
         if passwd == "1110":
             reverse = input("Ascending or descending order? a/d ")
             if reverse == "a":
-                library_one.sort_people_books()
+                friendship_one.sort_people_id()
             elif reverse == "d":
-                library_one.sort_people_books(True)
+                friendship_one.sort_people_id(True)
+            else:
+                raise SystemExit
+    elif level_two == "11":
+        passwd = input("Admin password (found in README.md): ")
+        if passwd == "1110":
+            reverse = input("Ascending or descending order? a/d ")
+            if reverse == "a":
+                friendship_one.sort_people_books()
+            elif reverse == "d":
+                friendship_one.sort_people_books(True)
             else:
                 raise SystemExit
     else:
