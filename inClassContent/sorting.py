@@ -67,7 +67,7 @@ def merge_sort(my_list):
     ''' a clear but space-inefficient implementation'''
     if len(my_list) == 0: # annoying silly case
         return my_list
-    if len(my_list) == 1: # base stopping case
+    if len(my_list) == 1: # ·   base stopping case
         return my_list
     # so at this point my_list has length >= 2
     L_size = len(my_list) // 2 # note use of integer division
